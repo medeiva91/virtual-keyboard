@@ -1,0 +1,48 @@
+.keyboard {
+    margin: 0 auto;
+    display: block;
+    width: 910px ;
+
+}
+
+.keys-wrapper {
+    margin: 0 auto;
+    display: flex;
+    width: 910px ;
+    flex-wrap: wrap;
+}
+textarea {
+    width: 883px;
+    height: 164px;
+    margin: 5px;
+}
+.letter {
+    background-color: bisque;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    padding: 5px;
+
+    text-align: center;
+}
+
+.special-key {
+    background-color: firebrick;
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    padding: 5px;
+
+    text-align: center;
+
+}
+
+.special-key-mini {
+    background-color: firebrick;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+
+}
