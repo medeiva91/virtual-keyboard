@@ -17,32 +17,42 @@ textarea {
     margin: 5px;
 }
 .letter {
-    background-color: bisque;
+    background-color: lavender;
     width: 40px;
     height: 40px;
     margin: 5px;
-    padding: 5px;
-
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 12px;
     text-align: center;
 }
 
+.letter:active {
+    background-color: lightcyan;
+}
+
+.letter.active , .special-key-mini.active, .special-key.active{
+    background-color: lightcyan;
+}
 .special-key {
-    background-color: firebrick;
+    background-color: lavender;
     width: 100px;
     height: 40px;
     margin: 5px;
-    padding: 5px;
+    padding: 4px;
 
     text-align: center;
-
+    border: 1px solid black;
+    border-radius: 12px;
 }
 
 .special-key-mini {
-    background-color: firebrick;
+    background-color: lavender;
     width: 40px;
     height: 40px;
     margin: 5px;
-    padding: 5px;
+    padding: 4px;
     text-align: center;
-
+    border: 1px solid black;
+    border-radius: 12px;
 }

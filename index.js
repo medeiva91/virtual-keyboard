@@ -240,7 +240,9 @@ const keyboard = {
     },
   };
   
-let lang = 'EN'
+
+let localLang = localStorage.getItem('vk-lang');
+let lang = localLang || 'EN';
 
 var link = document.createElement('link'); 
     link.rel = 'stylesheet'; 
@@ -266,10 +268,11 @@ var link = document.createElement('link');
             
         if (value[lang]) {
             div.classList.add('letter');
-            div.innerHTML = value[lang][0];
-            div.addEventListener('click', ()=>{
-                textarea += value[lang][0];
-            })
+            let letter =  value[lang][0];
+            div.innerHTML = letter;
+            div.dataset.value = letter;
+
+
         } else {
             div.innerHTML = value.name;
 
@@ -284,14 +287,53 @@ var link = document.createElement('link');
                     div.classList.add('special-key');
               }
         }
+        div.dataset.code = key;
+
         
         
         wrapper.append(div);
+    })
 
-
+    wrapper.addEventListener('click', (event)=> {
+        const value = event.target.getAttribute("data-value");
+        if (value) {
+            textarea.innerHTML += value;
+        }
     })
 
 
+    // document.addEventListener('keyup', makeActiveElem)
+    // document.addEventListener('keydown', makeActiveElem)
+    const activeKeys = [];
+    document.addEventListener('keyup', (event)=> {
+        const findLetter = wrapper.querySelector(`[data-code="${event.code}"]`);
+        if (findLetter) {
+            findLetter.classList.remove('active');
+        }
+
+        if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+            console.log('Отменить!')
+          }
+    console.log('keyup')
+    console.log(event)
+
+    })
+    document.addEventListener('keydown', makeActiveElem)
+
+    function makeActiveElem(event){
+        const findLetter = wrapper.querySelector(`[data-code="${event.code}"]`);
+        if (findLetter) {
+            findLetter.classList.add('active');
+        }
+
+        if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+            console.log('Отменить!')
+          }
+          console.log('keydown')
+
+    }
+
+    
 
 
 
